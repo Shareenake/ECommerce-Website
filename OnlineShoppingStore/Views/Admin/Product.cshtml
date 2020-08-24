@@ -1,0 +1,54 @@
+﻿@model List<OnlineShoppingStore.DAL.Product>
+
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Product</h2>
+
+<div class="col-12">
+    <div class="card mb-3">
+        <div class="card-header" style="background-color:cornflowerblue">
+            @* <i class="fas fa-table"></i>*@
+            Product Details
+            <a href="../Admin/ProductAdd" class="btn btn-info pull-right fa fa-plus">Add New</a>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body" style="border-color:cornflowerblue">
+            <div class="table-responsive">
+                <table id="dataTable" width="100" cellspacing="0" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Sr No</th>
+                            <th>Product Name</th>
+                            <th>Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            int Count = 1;
+                            <tr>
+                                <td>@(Model.IndexOf(item) + 1)</td>
+                                <td>@item.productName </td>
+                                <td>
+                                @Html.ActionLink("Edit", "ProductEdit", new { productId = item.ProductId })</td>
+
+                            </tr>
+                        }
+
+
+                    </tbody>
+                    <tfoot>
+
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>
+

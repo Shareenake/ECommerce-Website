@@ -1,0 +1,87 @@
+﻿@model List<OnlineShoppingStore.DAL.Category>
+    @{
+        ViewBag.Title = "Categories";
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+
+
+
+<div class="row mb-2">
+    <div class="col-sm-6">
+        <h2 class="m-0 text-dark">Categories</h2>
+    </div>
+</div>
+    
+
+    @*<section class="content">
+        <div class="row">*@
+    <div class="col-12">
+        <div class="card mb-3">
+            <div class="card-header" style="background-color:cornflowerblue">
+               @* <i class="fas fa-table"></i>*@
+                Category Details
+                <a href="../Admin/AddCategory" class="btn btn-info pull-right fa fa-plus">Add New</a>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body" style="border-color:cornflowerblue">
+                <div class="table-responsive">
+                    <table id="dataTable" width="100" cellspacing="0" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Sr No</th>
+                                <th>Category Name</th>
+                                <th>Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@(Model.IndexOf(item) + 1)</td>
+                                    <td>@item.CategoryName</td>
+                                    <td>@Html.ActionLink("Edit", "CategoryEdit", new { CategoryId = item.CategoryId })</td>
+
+                                </tr>
+                            }
+
+
+                        </tbody>
+                        <tfoot>
+
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+
+<script src="~/AdminStyle/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="~/AdminStyle/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="~/AdminStyle/plugins/datatables/jquery.dataTables.js"></script>
+<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+<!-- AdminLTE App -->
+<script src="~/AdminStyle/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="~/AdminStyle/dist/js/demo.js"></script>
+    <script>
+
+        $(function () {
+           
+            $("#example1").DataTable();
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+            });
+        });
+    </script>
+    @*</div>
+        </section>*@
