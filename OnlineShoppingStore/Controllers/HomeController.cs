@@ -58,9 +58,9 @@ namespace OnlineShoppingStore.Controllers
                             Quantity = 1
                         });
                     }
-                    Session["Cart"] = Cart;
+                    
                 }
-                
+                Session["Cart"] = Cart;
 
             }
            
@@ -96,5 +96,13 @@ namespace OnlineShoppingStore.Controllers
             return View();
         }
     
+        public ActionResult CheckOut()
+        {
+            return View();
+        }
+        public ActionResult CheckoutDetails()
+        {
+            return View();
+        }
     }
 }

@@ -79,8 +79,16 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PayPal, Version=1.9.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.9.1\lib\net451\PayPal.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -148,9 +156,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -207,6 +212,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="DAL\Cart.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -259,6 +265,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Shopping.cs" />
+    <Compile Include="PayPalConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\GenericUnitOfWork.cs" />
@@ -362,6 +369,11 @@
     <Content Include="Views\Admin\CategoryEdit.cshtml" />
     <Content Include="Views\Admin\AddCategory.cshtml" />
     <Content Include="Views\Shared\_ShoppingCart.cshtml" />
+    <Content Include="Views\Home\CheckOut.cshtml" />
+    <Content Include="Views\Home\CheckoutDetails.cshtml" />
+    <Content Include="Views\Payment\PaymentWithPaypal.cshtml" />
+    <Content Include="Views\Payment\FailureView.cshtml" />
+    <Content Include="Views\Payment\SuccessView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminStyle\css\" />
